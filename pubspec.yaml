@@ -1,0 +1,48 @@
+name: astrolume
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.8
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  flutter_tts: ^4.0.2
+  google_fonts: ^8.1.0
+  sqflite: ^2.3.3
+  sqflite_common_ffi: ^2.3.0
+  path: ^1.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - lib/assets/images/estrelaSplash1.png
+    - lib/assets/images/estrelaSplash2.png
+    - lib/assets/images/estrelaSplash3.png
+    - lib/assets/images/logo.png
+    - lib/assets/images/orionAcenando.png
+    - lib/assets/images/orioninterrogacao.png
+    - lib/assets/images/orionTectron.png
+    - lib/assets/images/vita.png
+    - lib/assets/images/commercium.png
+    - lib/assets/images/NAVE.png
+    - lib/assets/images/vectoHome.png
+    - lib/assets/images/vectoEstrela.png
+    - lib/assets/images/vectoUser.png
+    - lib/assets/images/vectoMSG.png
+    - lib/assets/images/vectoCoroa.png
+    - lib/assets/images/quadrinho.png
+    - lib/assets/images/orionParado.png
+    - lib/assets/images/orionAcerto.png
+    - lib/assets/images/orionError.png
