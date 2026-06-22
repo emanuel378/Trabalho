@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_dotenv: ^5.1.0   # ← saiu de dentro do flutter: sdk: flutter
 
   cupertino_icons: ^1.0.8
   flutter_tts: ^4.0.2
@@ -28,6 +29,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - .env                                        # ← indentação corrigida (estava sem o -)
     - lib/assets/images/estrelaSplash1.png
     - lib/assets/images/estrelaSplash2.png
     - lib/assets/images/estrelaSplash3.png
@@ -48,3 +50,5 @@ flutter:
     - lib/assets/images/orionAcerto.png
     - lib/assets/images/orionError.png
     - lib/assets/images/lua.png
+
+  

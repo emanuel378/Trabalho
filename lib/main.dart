@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'pages/splash/splash.dart';
 import 'pages/bemvindo/bemvindas.dart';
@@ -16,9 +17,12 @@ import 'pages/questoes/quest01Explicacao.dart';
 import 'pages/questoes/quest01Atv.dart';
 
 import 'pages/IA/lua_ia.dart';
-import 'pages/perfil/perfil.dart'; // ← import adicionado
+import 'pages/perfil/perfil.dart';
 
-void main() {
+// main agora é async para aguardar o carregamento do .env
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: '.env'); // ← carrega o .env
   runApp(const AstrolumApp());
 }
 
@@ -54,7 +58,7 @@ class AstrolumApp extends StatelessWidget {
         '/quest01-exp':        (ctx) => const Quest01ExplicacaoPage(),
         '/quest01-atv':        (ctx) => const Quest01AtvPage(),
         '/lua-ia':             (ctx) => const LuaIAPage(),
-        '/perfil':             (ctx) => const PerfilPage(), // ← rota corrigida
+        '/perfil':             (ctx) => const PerfilPage(),
       },
     );
   }
