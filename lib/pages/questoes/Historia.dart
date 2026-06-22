@@ -49,7 +49,7 @@ class HistoriaPage extends StatelessWidget {
                 Expanded(
                   child: SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 32), // ← aumentei o padding horizontal para encolher a imagem
                     child: Image.asset(
                       'lib/assets/images/quadrinho.png',
                       width: double.infinity,

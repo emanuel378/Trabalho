@@ -7,16 +7,16 @@ class Quest01ExplicacaoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF070B1E),
+      backgroundColor: const Color(0xFF0A0520),
       body: Stack(
         children: [
           const _FundoEspacial(),
           SafeArea(
             child: Column(
               children: [
-                const SizedBox(height: 20),
+                const SizedBox(height: 24),
 
-                // ── Título ──────────────────────────────────────
+                // Título "O que é verbo?"
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: RichText(
@@ -27,7 +27,7 @@ class Quest01ExplicacaoPage extends StatelessWidget {
                           text: 'O que é ',
                           style: TextStyle(
                             fontFamily: 'Poppins',
-                            fontSize: 28,
+                            fontSize: 24,
                             fontWeight: FontWeight.w700,
                             color: Colors.white,
                           ),
@@ -36,7 +36,7 @@ class Quest01ExplicacaoPage extends StatelessWidget {
                           text: 'verbo',
                           style: TextStyle(
                             fontFamily: 'Poppins',
-                            fontSize: 28,
+                            fontSize: 24,
                             fontWeight: FontWeight.w700,
                             color: Color(0xFF00E5FF),
                           ),
@@ -45,7 +45,7 @@ class Quest01ExplicacaoPage extends StatelessWidget {
                           text: '?',
                           style: TextStyle(
                             fontFamily: 'Poppins',
-                            fontSize: 28,
+                            fontSize: 24,
                             fontWeight: FontWeight.w700,
                             color: Colors.white,
                           ),
@@ -55,99 +55,41 @@ class Quest01ExplicacaoPage extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: 28),
+                const SizedBox(height: 32),
 
-                // ── Mascote hero com glow ────────────────────────
-                Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    // Glow atrás do mascote
-                    Container(
-                      width: 160,
-                      height: 160,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(0xFF00E5FF).withOpacity(0.25),
-                            blurRadius: 80,
-                            spreadRadius: 20,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Image.asset(
-                      'lib/assets/images/orionAcenando.png',
-                      width: 140,
-                      height: 140,
-                      errorBuilder: (_, __, ___) => Container(
-                        width: 140,
-                        height: 140,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.white.withOpacity(0.04),
-                          border: Border.all(
-                            color: const Color(0xFF00E5FF).withOpacity(0.3),
-                            width: 1.5,
-                          ),
-                        ),
-                        child: const Icon(
-                          Icons.smart_toy_outlined,
-                          color: Color(0xFF00E5FF),
-                          size: 64,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 28),
-
-                // ── Card 1: definição com borda gradiente ────────
+                // Card 1: definição
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: _GradientBorderCard(
+                  child: _CardExplicacao(
                     child: RichText(
                       textAlign: TextAlign.center,
                       text: const TextSpan(
                         style: TextStyle(
                           fontFamily: 'Poppins',
-                          fontSize: 16,
+                          fontSize: 15,
                           color: Colors.white,
-                          height: 1.7,
+                          height: 1.6,
                         ),
                         children: [
                           TextSpan(text: 'Um '),
                           TextSpan(
                             text: 'verbo',
-                            style: TextStyle(
-                              color: Color(0xFF00E5FF),
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: TextStyle(color: Color(0xFF00E5FF)),
                           ),
-                          TextSpan(text: ' é uma palavra que usamos\npara mostrar uma '),
+                          TextSpan(text: ' é uma palavra\nque usamos para mostrar\numa '),
                           TextSpan(
                             text: 'ação',
-                            style: TextStyle(
-                              color: Color(0xFF00E5FF),
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: TextStyle(color: Color(0xFF00E5FF)),
                           ),
                           TextSpan(text: ', um '),
                           TextSpan(
                             text: 'estado',
-                            style: TextStyle(
-                              color: Color(0xFF00E5FF),
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: TextStyle(color: Color(0xFF00E5FF)),
                           ),
-                          TextSpan(text: '\nou um '),
+                          TextSpan(text: ' ou\num '),
                           TextSpan(
                             text: 'acontecimento',
-                            style: TextStyle(
-                              color: Color(0xFF00E5FF),
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: TextStyle(color: Color(0xFF00E5FF)),
                           ),
                           TextSpan(text: '.'),
                         ],
@@ -156,31 +98,30 @@ class Quest01ExplicacaoPage extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: 16),
+                const SizedBox(height: 20),
 
-                // ── Card 2: exemplo ──────────────────────────────
+                // Card 2: exemplo com mascote
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: _CardExemplo(
+                  child: _CardExplicacao(
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        // Ícone de citação decorativo
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: const Color(0xFF00E5FF).withOpacity(0.12),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: const Icon(
-                            Icons.format_quote_rounded,
+                        // Mascote
+                        Image.asset(
+                          'lib/assets/images/orionAcenando.png',
+                          width: 64,
+                          errorBuilder: (_, __, ___) => const Icon(
+                            Icons.smart_toy_outlined,
                             color: Color(0xFF00E5FF),
-                            size: 22,
+                            size: 48,
                           ),
                         ),
-                        const SizedBox(width: 14),
+                        const SizedBox(width: 12),
+                        // Texto do exemplo
                         Expanded(
                           child: RichText(
+                            textAlign: TextAlign.center,
                             text: const TextSpan(
                               style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -189,22 +130,12 @@ class Quest01ExplicacaoPage extends StatelessWidget {
                                 height: 1.6,
                               ),
                               children: [
-                                TextSpan(
-                                  text: '"O sol nasce às 6h"\n',
-                                  style: TextStyle(
-                                    fontStyle: FontStyle.italic,
-                                    color: Colors.white70,
-                                  ),
-                                ),
-                                TextSpan(text: 'O verbo é "'),
+                                TextSpan(text: '"O sol nasce às 6h"\nO verbo é "'),
                                 TextSpan(
                                   text: 'nasce',
-                                  style: TextStyle(
-                                    color: Color(0xFF00E5FF),
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                                  style: TextStyle(color: Color(0xFF00E5FF)),
                                 ),
-                                TextSpan(text: '" — indica um acontecimento.'),
+                                TextSpan(text: '", indica\num acontecimento.'),
                               ],
                             ),
                           ),
@@ -214,9 +145,9 @@ class Quest01ExplicacaoPage extends StatelessWidget {
                   ),
                 ),
 
-                const Spacer(),
+                const SizedBox(height: 32),
 
-                // ── Botão Continuar ──────────────────────────────
+                // Botão Continuar
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: SizedBox(
@@ -226,15 +157,11 @@ class Quest01ExplicacaoPage extends StatelessWidget {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [Color(0xFF00E5FF), Color(0xFF1A8DE5)],
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
                         ),
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/quest01-atv');
-                        },
+                        onPressed: () => Navigator.pushNamed(context, '/mapa'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.transparent,
                           shadowColor: Colors.transparent,
@@ -247,7 +174,7 @@ class Quest01ExplicacaoPage extends StatelessWidget {
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 16,
-                            fontWeight: FontWeight.w700,
+                            fontWeight: FontWeight.w600,
                             color: Colors.white,
                           ),
                         ),
@@ -258,7 +185,7 @@ class Quest01ExplicacaoPage extends StatelessWidget {
 
                 const SizedBox(height: 12),
 
-                // ── Botão Voltar ─────────────────────────────────
+                // Botão Voltar
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: SizedBox(
@@ -268,7 +195,7 @@ class Quest01ExplicacaoPage extends StatelessWidget {
                       onPressed: () => Navigator.pop(context),
                       style: OutlinedButton.styleFrom(
                         foregroundColor: Colors.white,
-                        side: const BorderSide(color: Colors.white24, width: 1.5),
+                        side: const BorderSide(color: Colors.white30, width: 1.5),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(14),
                         ),
@@ -286,7 +213,7 @@ class Quest01ExplicacaoPage extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: 28),
+                const SizedBox(height: 24),
               ],
             ),
           ),
@@ -297,56 +224,21 @@ class Quest01ExplicacaoPage extends StatelessWidget {
 }
 
 // ══════════════════════════════════════════
-// CARD COM BORDA GRADIENTE (padrão Astro Lume)
+// CARD DE EXPLICAÇÃO
 // ══════════════════════════════════════════
-class _GradientBorderCard extends StatelessWidget {
+class _CardExplicacao extends StatelessWidget {
   final Widget child;
-  const _GradientBorderCard({required this.child});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        gradient: const LinearGradient(
-          colors: [Color(0xFF00E5FF), Color(0xFF1A8DE5)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
-      padding: const EdgeInsets.all(1.5),
-      child: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: const Color(0xFF0D1230),
-          borderRadius: BorderRadius.circular(19),
-        ),
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 22),
-        child: child,
-      ),
-    );
-  }
-}
-
-// ══════════════════════════════════════════
-// CARD DE EXEMPLO (fundo sutil, sem borda gradiente)
-// ══════════════════════════════════════════
-class _CardExemplo extends StatelessWidget {
-  final Widget child;
-  const _CardExemplo({required this.child});
+  const _CardExplicacao({required this.child});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
+        color: Colors.white.withOpacity(0.07),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: const Color(0xFF00E5FF).withOpacity(0.2),
-          width: 1,
-        ),
+        border: Border.all(color: Colors.white.withOpacity(0.15), width: 1),
       ),
       child: child,
     );
@@ -368,35 +260,25 @@ class _FundoEspacial extends StatelessWidget {
           painter: _EstrelasPainter(),
         ),
         Positioned(
-          top: -80,
-          right: -80,
+          top: -60, right: -60,
           child: Container(
-            width: 260,
-            height: 260,
+            width: 220, height: 220,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               boxShadow: [
-                BoxShadow(
-                  color: Colors.purple.withOpacity(0.3),
-                  blurRadius: 180,
-                ),
+                BoxShadow(color: Colors.purple.withOpacity(0.35), blurRadius: 160),
               ],
             ),
           ),
         ),
         Positioned(
-          bottom: 80,
-          left: -80,
+          bottom: 100, left: -60,
           child: Container(
-            width: 200,
-            height: 200,
+            width: 180, height: 180,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               boxShadow: [
-                BoxShadow(
-                  color: const Color(0xFF1A8DE5).withOpacity(0.2),
-                  blurRadius: 160,
-                ),
+                BoxShadow(color: Colors.blue.withOpacity(0.25), blurRadius: 140),
               ],
             ),
           ),
@@ -409,13 +291,13 @@ class _FundoEspacial extends StatelessWidget {
 class _EstrelasPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    final rng = math.Random(42);
+    final rng = math.Random(77);
     final paint = Paint();
-    for (int i = 0; i < 120; i++) {
-      paint.color = Colors.white.withOpacity(rng.nextDouble() * 0.6 + 0.1);
+    for (int i = 0; i < 100; i++) {
+      paint.color = Colors.white.withOpacity(rng.nextDouble() * 0.5 + 0.1);
       canvas.drawCircle(
         Offset(rng.nextDouble() * size.width, rng.nextDouble() * size.height),
-        rng.nextDouble() * 1.8 + 0.3,
+        rng.nextDouble() * 1.5 + 0.3,
         paint,
       );
     }

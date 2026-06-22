@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'services/database_service.dart';
 
 import 'pages/splash/splash.dart';
 import 'pages/bemvindo/bemvindas.dart';
@@ -16,12 +15,10 @@ import 'pages/questoes/Historia.dart';
 import 'pages/questoes/quest01Explicacao.dart';
 import 'pages/questoes/quest01Atv.dart';
 
-import 'pages/perfil/perfil.dart';
+import 'pages/IA/lua_ia.dart';
+import 'pages/perfil/perfil.dart'; // ← import adicionado
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  DatabaseService.init();
-
+void main() {
   runApp(const AstrolumApp());
 }
 
@@ -48,14 +45,16 @@ class AstrolumApp extends StatelessWidget {
         '/login':              (ctx) => const LoginPage(),
         '/esqueci-senha':      (ctx) => const EsqueciSenhaPage(),
         '/galaxia':            (ctx) => const GalaxiaSelecaoPage(),
-        '/galaxia-techtron':   (ctx) => const GalaxiaTechPage(),
-        '/galaxia-vita':       (ctx) => const GalaxiaVitaPage(),
-        '/galaxia-commercium': (ctx) => const GalaxiaCommerciumPage(),
+        '/galaxia-techtron':   (ctx) => GalaxiaTechPage(),
+        '/galaxia-vita':       (ctx) => GalaxiaVitaPage(),
+        '/galaxia-commercium': (ctx) => GalaxiaCommerciumPage(),
         '/mapa':               (ctx) => const MapaGalaxiaPage(),
         '/historia':           (ctx) => const HistoriaPage(),
+        '/quest01':            (ctx) => const Quest01ExplicacaoPage(),
         '/quest01-exp':        (ctx) => const Quest01ExplicacaoPage(),
         '/quest01-atv':        (ctx) => const Quest01AtvPage(),
-        '/perfil':             (ctx) => const PerfilPage(),
+        '/lua-ia':             (ctx) => const LuaIAPage(),
+        '/perfil':             (ctx) => const PerfilPage(), // ← rota corrigida
       },
     );
   }
